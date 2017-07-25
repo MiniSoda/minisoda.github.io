@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Raspberry Pi 的C++交叉编译环境配置 (4) | MiniSoda 的博客</title>
+  <meta name="author" content="George Zheng">
+
+  
+  <meta name="description" content="上一节我们介绍完vscode task任务管理的配置，这一节我们介绍最重要的调试环境的配置。
+在VSCODE下按F5 ，选择C++
+
+VSCODE会自动弹出launch.json文件
+复制以下内容，覆盖launch.json
+12345678910111213141516171819202122&amp;#">
+  
+  
+
+  <link rel="alternate" href="/atom.xml" title="MiniSoda 的博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-103184815-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <header id="header" class="inner"><nav>
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+</nav></header>
+  <div id="content" class="inner"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title">Raspberry Pi 的C++交叉编译环境配置 (4)</h1>
+  
+
+    <time datetime="2017-07-25T15:58:53.000Z">
+  <span class="day">25</span><span class="month">Jul</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <p>上一节我们介绍完vscode task任务管理的配置，这一节我们介绍最重要的调试环境的配置。</p>
+<p>在VSCODE下按<code>F5</code> ，选择C++</p>
+<p><img src="/2017/07/25/Raspberry Pi 的C++交叉编译环境配置 (4)/vscode-debug.jpg" alt="vscode-debug"></p>
+<p>VSCODE会自动弹出launch.json文件</p>
+<p>复制以下内容，覆盖launch.json</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</div><div class="line">  <span class="attr">"configurations"</span>: [</div><div class="line">    &#123;</div><div class="line">      <span class="attr">"name"</span>: <span class="string">"C++ Launch"</span>,</div><div class="line">      <span class="attr">"type"</span>: <span class="string">"cppdbg"</span>,</div><div class="line">      <span class="attr">"request"</span>: <span class="string">"launch"</span>,</div><div class="line">      <span class="attr">"program"</span>: <span class="string">"$&#123;workspaceRoot&#125;/testapp_d"</span>,</div><div class="line">      <span class="attr">"miDebuggerServerAddress"</span>: <span class="string">"raspberry:9091"</span>,</div><div class="line">      <span class="attr">"args"</span>: [],</div><div class="line">      <span class="attr">"stopAtEntry"</span>: <span class="literal">false</span>,</div><div class="line">      <span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceRoot&#125;"</span>,</div><div class="line">      <span class="attr">"environment"</span>: [],</div><div class="line">      <span class="attr">"externalConsole"</span>: <span class="literal">true</span>,</div><div class="line">      </div><div class="line">      <span class="attr">"linux"</span>: &#123;</div><div class="line">        <span class="attr">"miDebuggerPath"</span>: <span class="string">"/home/george/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-gdb"</span>,</div><div class="line">        <span class="attr">"MIMode"</span>: <span class="string">"gdb"</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>配置中最重要的三个参数分别是,</p>
+<ul>
+<li>program: 执行程序的带路径的名称</li>
+<li>miDebuggerServerAddress: 调试服务器的地址，”raspberry:9091” 其中raspberry是IP地址也可以是主机名称，后面是端口号</li>
+<li>miDebuggerPath: 调试器地址，注意这里要替换成你的调试器所在的路径</li>
+</ul>
+<p>我们在上一节中介绍了task的配置，其中有一项为 <code>remote debug</code> 。这个任务中引用了一段脚本，用来做一些远程调试的必要准备工作，脚本如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#clean and build</span></div><div class="line"><span class="comment">#make clean</span></div><div class="line">make ver=debug debug</div><div class="line"><span class="comment">#transfer exe file to raspberr pi</span></div><div class="line">scp ./testapp_d pi@raspberry:~/project/testapp_d</div><div class="line"><span class="comment"># Kill gdbserver if it's running</span></div><div class="line">ssh pi@raspberry killall gdbserver &amp;&gt; /dev/null</div><div class="line"><span class="comment"># Compile myprogram and launch gdbserver, listening on port 9091</span></div><div class="line">ssh pi@raspberry <span class="string">"cd project &amp;&amp; gdbserver :9091 ./testapp_d"</span></div></pre></td></tr></table></figure>
+<p>脚本主要做了以下工作：</p>
+<ul>
+<li>用debug模式编译执行文件</li>
+<li>将执行文件传输至RPi</li>
+<li>远程执行结束gdbserver进程，以防止有没有结束的gdbserver占用端口</li>
+<li>执行启动gdbserver调试执行文件</li>
+</ul>
+<p>现在RPi上还没有project目录，下面我们在RPi上创建一下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir project</div></pre></td></tr></table></figure>
+<p>现在我们可以测试一下环境是否搭建成功，测试前请确保Ubuntu和RPi的网络连接正常</p>
+<ol>
+<li><p>在vscode的test.cpp中按下<code>F9</code>选取一行作为断点</p>
+<p><img src="/2017/07/25/Raspberry Pi 的C++交叉编译环境配置 (4)/vscode-debug-break.jpg" alt="vscode-debug-break"></p>
+</li>
+<li><p>在vscode中按下 <code>Ctrl+F7</code> 执行编译、传输、启动gdbserver的工作</p>
+<p><img src="/2017/07/25/Raspberry Pi 的C++交叉编译环境配置 (4)/vscode-debug-serveron.jpg" alt="vscode-debug-serveron"></p>
+</li>
+<li><p>看到gdbserver启动成功后，按下<code>F5</code> 启动调试，调试器会自动连接,如果没有自动打开可以选择左侧边栏的调试面板按钮，可以看到代码已经命中断点，所有的变量的值都显示在变量栏里，可以按<code>F10</code>单步调试。程序的输出会显示在Terminal里。</p>
+<p><img src="/2017/07/25/Raspberry Pi 的C++交叉编译环境配置 (4)/vscode-debug-stepin.jpg" alt="vscode-debug-stepin"></p>
+<p>​</p>
+</li>
+</ol>
+<p>至此我们所有的配置工作就已经完成了，我总结一下现在的开发流程就是：</p>
+<ol>
+<li>编辑代码，<code>F7</code>查看是否有编译错误</li>
+<li><code>Ctrl+F7</code>传输代码至RPi</li>
+<li><code>F9</code>源代码中添加短短</li>
+<li><code>F5</code>连接远程调试器进行调试</li>
+<li>发现错误，重复1</li>
+</ol>
+
+    
+    
+    <footer class="meta">
+      
+  <div class="cats">
+<a href="/categories/技术类/">技术类</a></div>
+
+      
+  <div class="tags">
+<a href="/tags/RPi/">RPi</a><a href="/tags/Ubuntu/">Ubuntu</a><a href="/tags/C/">C++</a><a href="/tags/VSCODE/">VSCODE</a></div>
+
+      
+    </footer>
+    
+  </div>
+  
+</article></div>
+  <footer id="footer" class="inner"><div class="social alignright">
+  
+  
+  
+    <a class="twitter" href="http://twitter.com/https://twitter.com/PuffingWorks" title="Twitter">Twitter</a>
+  
+  
+    <a class="github" href="https://github.com/https://github.com/MiniSoda" title="GitHub">GitHub</a>
+  
+  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>
+  
+  &copy; 2017 George Zheng
+  
+</p>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id="phasebeam">
+  <canvas></canvas>
+  <canvas></canvas>
+  <canvas></canvas>
+</div>
+<script src="/js/phasebeam.js"></script>
+</body>
+</html>

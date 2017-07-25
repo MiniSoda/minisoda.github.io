@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8">
   
-  <title>MiniSoda 的博客</title>
+  <title>Raspberry Pi 的C++交叉编译环境配置 (3) | MiniSoda 的博客</title>
   <meta name="author" content="George Zheng">
 
+  
+  <meta name="description" content="上一节我们把交叉编译的环境配置好了，但是作为开发过程来讲尤其是从被Visual Studio开发环境懒惯了的人来讲，用编辑器开发用命令编译工作效率还是太低。幸好M$在15年推出了 visual studio code ，本质上讲它只是一款编辑器，但是配合上插件和配置脚本后可以让Linux开发和在Wi">
   
   
 
@@ -38,8 +40,7 @@
     
   </ul>
 </nav></header>
-  <div id="content" class="inner">
-  <article class="post">
+  <div id="content" class="inner"><article class="post">
   
     <div class="gallery">
   <div class="photoset">
@@ -56,96 +57,7 @@
   <header>
     
   
-    <h1 class="title"><a href="/2017/07/25/Raspberry Pi 的C++交叉编译环境配置 (4)/">Raspberry Pi 的C++交叉编译环境配置 (4)</a></h1>
-  
-
-    <time datetime="2017-07-25T15:58:53.000Z">
-  <span class="day">25</span><span class="month">Jul</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>上一节我们介绍完vscode task任务管理的配置，这一节我们介绍最重要的调试环境的配置。</p>
-<p>在VSCODE下按<code>F5</code> ，选择C++</p>
-<p><img src="/2017/07/25/Raspberry Pi 的C++交叉编译环境配置 (4)/vscode-debug.jpg" alt="vscode-debug"></p>
-<p>VSCODE会自动弹出launch.json文件</p>
-<p>复制以下内容，覆盖launch.json</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</div><div class="line">  <span class="attr">"configurations"</span>: [</div><div class="line">    &#123;</div><div class="line">      <span class="attr">"name"</span>: <span class="string">"C++ Launch"</span>,</div><div class="line">      <span class="attr">"type"</span>: <span class="string">"cppdbg"</span>,</div><div class="line">      <span class="attr">"request"</span>: <span class="string">"launch"</span>,</div><div class="line">      <span class="attr">"program"</span>: <span class="string">"$&#123;workspaceRoot&#125;/testapp_d"</span>,</div><div class="line">      <span class="attr">"miDebuggerServerAddress"</span>: <span class="string">"raspberry:9091"</span>,</div><div class="line">      <span class="attr">"args"</span>: [],</div><div class="line">      <span class="attr">"stopAtEntry"</span>: <span class="literal">false</span>,</div><div class="line">      <span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceRoot&#125;"</span>,</div><div class="line">      <span class="attr">"environment"</span>: [],</div><div class="line">      <span class="attr">"externalConsole"</span>: <span class="literal">true</span>,</div><div class="line">      </div><div class="line">      <span class="attr">"linux"</span>: &#123;</div><div class="line">        <span class="attr">"miDebuggerPath"</span>: <span class="string">"/home/george/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-gdb"</span>,</div><div class="line">        <span class="attr">"MIMode"</span>: <span class="string">"gdb"</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>配置中最重要的三个参数分别是,</p>
-<ul>
-<li>program: 执行程序的带路径的名称</li>
-<li>miDebuggerServerAddress: 调试服务器的地址，”raspberry:9091” 其中raspberry是IP地址也可以是主机名称，后面是端口号</li>
-<li>miDebuggerPath: 调试器地址，注意这里要替换成你的调试器所在的路径</li>
-</ul>
-<p>我们在上一节中介绍了task的配置，其中有一项为 <code>remote debug</code> 。这个任务中引用了一段脚本，用来做一些远程调试的必要准备工作，脚本如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#clean and build</span></div><div class="line"><span class="comment">#make clean</span></div><div class="line">make ver=debug debug</div><div class="line"><span class="comment">#transfer exe file to raspberr pi</span></div><div class="line">scp ./testapp_d pi@raspberry:~/project/testapp_d</div><div class="line"><span class="comment"># Kill gdbserver if it's running</span></div><div class="line">ssh pi@raspberry killall gdbserver &amp;&gt; /dev/null</div><div class="line"><span class="comment"># Compile myprogram and launch gdbserver, listening on port 9091</span></div><div class="line">ssh pi@raspberry <span class="string">"cd project &amp;&amp; gdbserver :9091 ./testapp_d"</span></div></pre></td></tr></table></figure>
-<p>脚本主要做了以下工作：</p>
-<ul>
-<li>用debug模式编译执行文件</li>
-<li>将执行文件传输至RPi</li>
-<li>远程执行结束gdbserver进程，以防止有没有结束的gdbserver占用端口</li>
-<li>执行启动gdbserver调试执行文件</li>
-</ul>
-<p>现在RPi上还没有project目录，下面我们在RPi上创建一下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir project</div></pre></td></tr></table></figure>
-<p>现在我们可以测试一下环境是否搭建成功，测试前请确保Ubuntu和RPi的网络连接正常</p>
-<ol>
-<li><p>在vscode的test.cpp中按下<code>F9</code>选取一行作为断点</p>
-<p><img src="/2017/07/25/Raspberry Pi 的C++交叉编译环境配置 (4)/vscode-debug-break.jpg" alt="vscode-debug-break"></p>
-</li>
-<li><p>在vscode中按下 <code>Ctrl+F7</code> 执行编译、传输、启动gdbserver的工作</p>
-<p><img src="/2017/07/25/Raspberry Pi 的C++交叉编译环境配置 (4)/vscode-debug-serveron.jpg" alt="vscode-debug-serveron"></p>
-</li>
-<li><p>看到gdbserver启动成功后，按下<code>F5</code> 启动调试，调试器会自动连接,如果没有自动打开可以选择左侧边栏的调试面板按钮，可以看到代码已经命中断点，所有的变量的值都显示在变量栏里，可以按<code>F10</code>单步调试。程序的输出会显示在Terminal里。</p>
-<p><img src="/2017/07/25/Raspberry Pi 的C++交叉编译环境配置 (4)/vscode-debug-stepin.jpg" alt="vscode-debug-stepin"></p>
-<p>​</p>
-</li>
-</ol>
-<p>至此我们所有的配置工作就已经完成了，我总结一下现在的开发流程就是：</p>
-<ol>
-<li>编辑代码，<code>F7</code>查看是否有编译错误</li>
-<li><code>Ctrl+F7</code>传输代码至RPi</li>
-<li><code>F9</code>源代码中添加短短</li>
-<li><code>F5</code>连接远程调试器进行调试</li>
-<li>发现错误，重复1</li>
-</ol>
-
-    
-    
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/技术类/">技术类</a></div>
-
-      
-  <div class="tags">
-<a href="/tags/RPi/">RPi</a><a href="/tags/Ubuntu/">Ubuntu</a><a href="/tags/C/">C++</a><a href="/tags/VSCODE/">VSCODE</a></div>
-
-      
-    </footer>
-    
-  </div>
-  
-</article>
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2017/07/24/Raspberry Pi 的C++交叉编译环境配置 (3)/">Raspberry Pi 的C++交叉编译环境配置 (3)</a></h1>
+    <h1 class="title">Raspberry Pi 的C++交叉编译环境配置 (3)</h1>
   
 
     <time datetime="2017-07-24T14:20:05.000Z">
@@ -261,231 +173,7 @@
     
   </div>
   
-</article>
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2017/07/22/Raspberry Pi 的C++交叉编译环境配置 (2)/">Raspberry Pi 的C++交叉编译环境配置 (2)</a></h1>
-  
-
-    <time datetime="2017-07-22T14:17:33.000Z">
-  <span class="day">22</span><span class="month">Jul</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>上一节我们把RPi的交叉编译器准备好了，但是实际上并没有配置好编译器所需要的库文件。</p>
-<p>首先，我们做一些配置，让Ubuntu主机与树莓派通信更加方便。为了方便区分，每段代码的上方用host表示在Ubuntu中执行的命令raspberry表示在树莓派中执行的命令</p>
-<ol>
-<li><p>添加树莓派的IP到主机的host文件中：</p>
-<p><em>host</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/hosts</div></pre></td></tr></table></figure>
-<p>移动光标到相应的地方按 <em>i</em> 进入编辑模式。添加主机的IP地址和名称，然后 <em>:wq</em> 保存</p>
-<p><img src="/2017/07/22/Raspberry Pi 的C++交叉编译环境配置 (2)/add_host.jpg" alt="add_host"></p>
-</li>
-<li><p>添加公钥到RPi，这样以后对RPi的远程操作不需要重新输入密码了</p>
-<p><em>host</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa</div></pre></td></tr></table></figure>
-<p>一路确认不要输入其他参数，成功后会在 <em>~/.ssh</em> 目录下生成公钥和私钥 <em>id_rsa id_rsa.pub</em></p>
-<p>将公钥复制到RPi的 ~/.ssh目录下，以后通过Ubuntu主机就可以直接登录RPi不需要重复输入密码了。</p>
-<p><em>raspberry</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp ~/.ssh/id_rsa.pub pi@raspberry:~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
-<p>然后登录到RPi 把id_rsa.pub的内容添加到authorized_keys文件中</p>
-<p><em>raspberry</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> .ssh</div><div class="line">cat id_rsa.pub&gt;&gt;authorized_keys</div></pre></td></tr></table></figure>
-<p>回到Ubuntu主机的terminal中测试</p>
-<p><em>host</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh pi@raspberry</div></pre></td></tr></table></figure>
-<p>如果不需输入密码了说明配置成功了</p>
-<p>​</p>
-</li>
-</ol>
-<p>下一步，我们在Ubuntu上建立一个文件夹用来存放RPi的库和头文件。然后通过rsync命令把树莓派上面的文件拷贝到本地，注意在此之前要上一步的操作已经完成，否则请把rsync命令中的raspberry替换成实际的IP地址。</p>
-<p><em>host</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir raspberrypi &amp;&amp; <span class="built_in">cd</span> raspberrypi</div><div class="line">mkdir rootfs &amp;&amp; <span class="built_in">cd</span> rootfs</div><div class="line">rsync -rl --delete-after --safe-links pi@raspberry:/&#123;lib,usr&#125; <span class="variable">$HOME</span>/raspberrypi/rootfs</div></pre></td></tr></table></figure>
-<p>这里rsync会把RPi上整个 lib 和 usr目录拷贝过来，如果需要Qt库的话可以在拷贝之前先在RPi上配置好Qt开发所需的库然后再拷贝。</p>
-<p>拷贝结束后我们写一个测试程序来试一试吧。</p>
-<p>用编辑器输入以下代码，保存为 <em>test.cpp</em></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;thread&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( <span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="function">thread <span class="title">t</span><span class="params">( []()</span></span>&#123; <span class="built_in">puts</span>(<span class="string">"Hello, Lambda thread!"</span>);  &#125;);  </div><div class="line">    <span class="built_in">string</span> strInfo = <span class="string">""</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"Hello Test!"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">float</span> szChara = <span class="number">8.0</span>;</div><div class="line">    </div><div class="line">    <span class="keyword">int</span> sum=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>;i++)</div><div class="line">    &#123;</div><div class="line">        sum+=i;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> size = <span class="keyword">sizeof</span>(szChara);</div><div class="line">    <span class="built_in">cout</span>&lt;&lt; <span class="string">"size of char: "</span>&lt;&lt; size &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    t.join();  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在Terminal中用编译器编译一下</p>
-<p><em>host</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arm-linux-gnueabihf-g++ -Wall -pthread -std=c++11 -o testapp test.cpp -I~/raspberrypi/rootfs/usr/include -L~/raspberrypi/rootfs/lib/arm-linux-gnueabihf</div></pre></td></tr></table></figure>
-<p>可以看到这时目录中生成了 testapp执行文件，如果此时执行这个文件会提示</p>
-<p>bash: ./testapp: cannot execute binary file: Exec format error</p>
-<p>这是因为用交叉编译工具编译出来的执行文件是以arm平台作为目标的，而我们的Ubuntu主机是X86架构。可以通过file命令来验证。</p>
-<p><img src="/2017/07/22/Raspberry Pi 的C++交叉编译环境配置 (2)/compile_run.jpg" alt="compile_run"></p>
-<p>现在我们把testapp传输到RPi上来执行</p>
-<p><em>raspberry</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp testapp pi@raspberry:testapp</div></pre></td></tr></table></figure>
-<p>切换到RPi的Terminal上来执行</p>
-<p><em>raspberry</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./testapp</div></pre></td></tr></table></figure>
-<p>窗口输出</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">pi@raspberrypi:~ $ ./testapp </div><div class="line">Hello Test!</div><div class="line">size of char: 4</div><div class="line">Hello, Lambda thread!</div></pre></td></tr></table></figure>
-<p>至此，我们对编译环境的配置就完全结束了，下一节我们开始配置VSCODE</p>
-
-    
-    
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/技术类/">技术类</a></div>
-
-      
-  <div class="tags">
-<a href="/tags/RPi/">RPi</a><a href="/tags/Ubuntu/">Ubuntu</a><a href="/tags/C/">C++</a><a href="/tags/VSCODE/">VSCODE</a></div>
-
-      
-    </footer>
-    
-  </div>
-  
-</article>
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2017/07/21/Raspberry Pi 的C++交叉编译环境配置 (1)/">Raspberry Pi 的C++交叉编译环境配置 (1)</a></h1>
-  
-
-    <time datetime="2017-07-21T15:45:33.000Z">
-  <span class="day">21</span><span class="month">Jul</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>最近因为工作需要，正在学习配置Raspberry Pi的交叉编译环境。公司有一套基于Windows的程序准备移植到树莓派上，而自己本来是做Windows下的C++开发工作，因此选择界面比较友好的Ubuntu作为操作系统、VSCODE作为编辑器来进行开发工作，毕竟M$大法好。</p>
-<p>这一系列博客将会按照下图的结构来展开：</p>
-<p><img src="/2017/07/21/Raspberry Pi 的C++交叉编译环境配置 (1)/RPi的交叉编译环境.png" alt="RPi的交叉编译环境"></p>
-<p>工欲善其事，必先利其器。今天某宝买的Raspberry Pi 3B到货，记录一下交叉编译环境搭建的过程。我们会用到以下工具：</p>
-<ul>
-<li>Ubuntu虚机或物理机</li>
-<li><a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="external">树莓派操作系统</a></li>
-<li><a href="https://github.com/raspberrypi/tools" target="_blank" rel="external">树莓派交叉编译工具链</a></li>
-<li><a href="https://code.visualstudio.com/" target="_blank" rel="external">M$家的VSCODE</a></li>
-</ul>
-<p>Ubuntu虚机和树莓派的系统有很多教程都很详细，我这里用的是Ubuntu 16.04LTS 和 RASPBIAN JESSIE WITH DESKTOP with Kernel version: <strong>4.9</strong></p>
-<p>首先是安装交叉编译工具链到Ubuntu，打开Terminal在家目录下执行以下操作</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir tools</div><div class="line">git <span class="built_in">clone</span> https://github.com/raspberrypi/tools.git tools</div></pre></td></tr></table></figure>
-<p>这个命令会到 raspberrypi 的官方repo去下载工具，时间取决于网络情况。</p>
-<p>下载完成后进入 $HOME/tools/arm-bcm2708 目录</p>
-<p>在 arm-bcm2708目录下有以下目录， 每个都是一个单独的工具链:</p>
-<ol>
-<li>arm-bcm2708-linux-gnueabi</li>
-<li>arm-bcm2708hardfp-linux-gnueabi</li>
-<li>gcc-linaro-arm-linux-gnueabihf-raspbian</li>
-<li>gcc-linaro-arm-linux-gnueabihf-raspbian-x64</li>
-</ol>
-<p>由于我用的是64为操作系统，所以需要把 4 指向的目录添加到 .bashrc 中。注意，/home/zheng是我自己的用户路径，这里要替换成你自己的路径。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vi ~/.bashrc</div><div class="line"><span class="comment">#添加以下内容到文件末尾</span></div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/home/zheng/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin</div><div class="line"><span class="built_in">source</span> .bashrc</div></pre></td></tr></table></figure>
-<p>通过 source .bashrc更新terminal的环境变量</p>
-<p>接下来执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arm-linux-gnueabihf-gcc -v</div></pre></td></tr></table></figure>
-<p>如果看到这样的输出，就说明配置交叉编译工具成功了</p>
-<p><img src="/2017/07/21/Raspberry Pi 的C++交叉编译环境配置 (1)/terminal-snapshot.jpg" alt="控制台截图"></p>
-<p>今天就先写到这里，下回继续.</p>
-
-    
-    
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/技术类/">技术类</a></div>
-
-      
-  <div class="tags">
-<a href="/tags/RPi/">RPi</a><a href="/tags/Ubuntu/">Ubuntu</a><a href="/tags/C/">C++</a><a href="/tags/VSCODE/">VSCODE</a></div>
-
-      
-    </footer>
-    
-  </div>
-  
-</article>
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2017/07/19/hello-world/">Hello World</a></h1>
-  
-
-    <time datetime="2017-07-19T14:57:48.012Z">
-  <span class="day">19</span><span class="month">Jul</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-
-
-<nav id="pagenavi">
-  
-  
-  <div class="clearfix"></div>
-</nav></div>
+</article></div>
   <footer id="footer" class="inner"><div class="social alignright">
   
   
