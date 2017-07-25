@@ -3,9 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>MiniSoda 的博客</title>
+  <title>Raspberry Pi 的C++交叉编译环境配置 (2) | MiniSoda 的博客</title>
   <meta name="author" content="George Zheng">
 
+  
+  <meta name="description" content="上一节我们把RPi的交叉编译器准备好了，但是实际上并没有配置好编译器所需要的库文件。
+首先，我们做一些配置，让Ubuntu主机与树莓派通信更加方便。为了方便区分，每段代码的上方用host表示在Ubuntu中执行的命令raspberry表示在树莓派中执行的命令
+
+添加树莓派的IP到主机的host文件中">
   
   
 
@@ -38,8 +43,7 @@
     
   </ul>
 </nav></header>
-  <div id="content" class="inner">
-  <article class="post">
+  <div id="content" class="inner"><article class="post">
   
     <div class="gallery">
   <div class="photoset">
@@ -56,7 +60,7 @@
   <header>
     
   
-    <h1 class="title"><a href="/2017/07/22/Raspberry Pi 的C++交叉编译环境配置 (2)/">Raspberry Pi 的C++交叉编译环境配置 (2)</a></h1>
+    <h1 class="title">Raspberry Pi 的C++交叉编译环境配置 (2)</h1>
   
 
     <time datetime="2017-07-22T14:17:33.000Z">
@@ -131,137 +135,7 @@
     
   </div>
   
-</article>
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2017/07/21/Raspberry Pi 的C++交叉编译环境配置 (1)/">Raspberry Pi 的C++交叉编译环境配置 (1)</a></h1>
-  
-
-    <time datetime="2017-07-21T15:45:33.000Z">
-  <span class="day">21</span><span class="month">Jul</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>最近因为工作需要，正在学习配置Raspberry Pi的交叉编译环境。公司有一套基于Windows的程序准备移植到树莓派上，而自己本来是做Windows下的C++开发工作，因此选择界面比较友好的Ubuntu作为操作系统、VSCODE作为编辑器来进行开发工作，毕竟M$大法好。</p>
-<p>这一系列博客将会按照下图的结构来展开：</p>
-<p><img src="/2017/07/21/Raspberry Pi 的C++交叉编译环境配置 (1)/RPi的交叉编译环境.png" alt="RPi的交叉编译环境"></p>
-<p>工欲善其事，必先利其器。今天某宝买的Raspberry Pi 3B到货，记录一下交叉编译环境搭建的过程。我们会用到以下工具：</p>
-<ul>
-<li>Ubuntu虚机或物理机</li>
-<li><a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="external">树莓派操作系统</a></li>
-<li><a href="https://github.com/raspberrypi/tools" target="_blank" rel="external">树莓派交叉编译工具链</a></li>
-<li><a href="https://code.visualstudio.com/" target="_blank" rel="external">M$家的VSCODE</a></li>
-</ul>
-<p>Ubuntu虚机和树莓派的系统有很多教程都很详细，我这里用的是Ubuntu 16.04LTS 和 RASPBIAN JESSIE WITH DESKTOP with Kernel version: <strong>4.9</strong></p>
-<p>首先是安装交叉编译工具链到Ubuntu，打开Terminal在家目录下执行以下操作</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir tools</div><div class="line">git <span class="built_in">clone</span> https://github.com/raspberrypi/tools.git tools</div></pre></td></tr></table></figure>
-<p>这个命令会到 raspberrypi 的官方repo去下载工具，时间取决于网络情况。</p>
-<p>下载完成后进入 $HOME/tools/arm-bcm2708 目录</p>
-<p>在 arm-bcm2708目录下有以下目录， 每个都是一个单独的工具链:</p>
-<ol>
-<li>arm-bcm2708-linux-gnueabi</li>
-<li>arm-bcm2708hardfp-linux-gnueabi</li>
-<li>gcc-linaro-arm-linux-gnueabihf-raspbian</li>
-<li>gcc-linaro-arm-linux-gnueabihf-raspbian-x64</li>
-</ol>
-<p>由于我用的是64为操作系统，所以需要把 4 指向的目录添加到 .bashrc 中。注意，/home/zheng是我自己的用户路径，这里要替换成你自己的路径。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vi ~/.bashrc</div><div class="line"><span class="comment">#添加以下内容到文件末尾</span></div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/home/zheng/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin</div><div class="line"><span class="built_in">source</span> .bashrc</div></pre></td></tr></table></figure>
-<p>通过 source .bashrc更新terminal的环境变量</p>
-<p>接下来执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arm-linux-gnueabihf-gcc -v</div></pre></td></tr></table></figure>
-<p>如果看到这样的输出，就说明配置交叉编译工具成功了</p>
-<p><img src="/2017/07/21/Raspberry Pi 的C++交叉编译环境配置 (1)/terminal-snapshot.jpg" alt="控制台截图"></p>
-<p>今天就先写到这里，下回继续.</p>
-
-    
-    
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/技术类/">技术类</a></div>
-
-      
-  <div class="tags">
-<a href="/tags/RPi/">RPi</a><a href="/tags/Ubuntu/">Ubuntu</a><a href="/tags/C/">C++</a><a href="/tags/VSCODE/">VSCODE</a></div>
-
-      
-    </footer>
-    
-  </div>
-  
-</article>
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2017/07/19/hello-world/">Hello World</a></h1>
-  
-
-    <time datetime="2017-07-19T14:57:48.012Z">
-  <span class="day">19</span><span class="month">Jul</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-
-
-<nav id="pagenavi">
-  
-  
-  <div class="clearfix"></div>
-</nav></div>
+</article></div>
   <footer id="footer" class="inner"><div class="social alignright">
   
   

@@ -3,21 +3,32 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Raspberry Pi 的C++交叉编译环境配置 (1) | MiniSoda&#39;s Blog</title>
+  <title>Raspberry Pi 的C++交叉编译环境配置 (1) | MiniSoda 的博客</title>
   <meta name="author" content="George Zheng">
 
   
-  <meta name="description" content="标签： RPi Ubuntu C++ VSCODE
-
-最近因为工作需要，正在学习配置Raspberry Pi的交叉编译环境。公司有一套基于Windows的程序准备移植到树莓派上，而自己本来是做Windows下的C++开发工作，因此选择界面比较友好的Ubuntu作为操作系统、VSCODE作为编辑器来进">
+  <meta name="description" content="最近因为工作需要，正在学习配置Raspberry Pi的交叉编译环境。公司有一套基于Windows的程序准备移植到树莓派上，而自己本来是做Windows下的C++开发工作，因此选择界面比较友好的Ubuntu作为操作系统、VSCODE作为编辑器来进行开发工作，毕竟M$大法好。
+这一系列博客将会按照下图">
   
   
 
-  <link rel="alternate" href="/atom.xml" title="MiniSoda&#39;s Blog" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="MiniSoda 的博客" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-103184815-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
 </head>
 
 <body>
@@ -50,17 +61,15 @@
     <h1 class="title">Raspberry Pi 的C++交叉编译环境配置 (1)</h1>
   
 
-    <time datetime="2017-07-21T16:42:02.721Z">
-  <span class="day">22</span><span class="month">Jul</span>
+    <time datetime="2017-07-21T15:45:33.000Z">
+  <span class="day">21</span><span class="month">Jul</span>
 </time>
   </header>
   <div class="entry-content">
     
-      <p>标签： RPi Ubuntu C++ VSCODE</p>
-<hr>
-<p>最近因为工作需要，正在学习配置Raspberry Pi的交叉编译环境。公司有一套基于Windows的程序准备移植到树莓派上，而自己本来是做Windows下的C++开发工作，因此选择界面比较友好的Ubuntu作为操作系统、VSCODE作为编辑器来进行开发工作，毕竟M$大法好。</p>
+      <p>最近因为工作需要，正在学习配置Raspberry Pi的交叉编译环境。公司有一套基于Windows的程序准备移植到树莓派上，而自己本来是做Windows下的C++开发工作，因此选择界面比较友好的Ubuntu作为操作系统、VSCODE作为编辑器来进行开发工作，毕竟M$大法好。</p>
 <p>这一系列博客将会按照下图的结构来展开：</p>
-<p><img src="/2017/07/22/Raspberry-Pi-的C-交叉编译环境配置-1/RPi的交叉编译环境.png" alt="RPi的交叉编译环境"></p>
+<p><img src="/2017/07/21/Raspberry Pi 的C++交叉编译环境配置 (1)/RPi的交叉编译环境.png" alt="RPi的交叉编译环境"></p>
 <p>工欲善其事，必先利其器。今天某宝买的Raspberry Pi 3B到货，记录一下交叉编译环境搭建的过程。我们会用到以下工具：</p>
 <ul>
 <li>Ubuntu虚机或物理机</li>
@@ -86,14 +95,20 @@
 <p>接下来执行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arm-linux-gnueabihf-gcc -v</div></pre></td></tr></table></figure>
 <p>如果看到这样的输出，就说明配置交叉编译工具成功了</p>
-<p><img src="/2017/07/22/Raspberry-Pi-的C-交叉编译环境配置-1/terminal-snapshot.jpg" alt="控制台截图"></p>
+<p><img src="/2017/07/21/Raspberry Pi 的C++交叉编译环境配置 (1)/terminal-snapshot.jpg" alt="控制台截图"></p>
 <p>今天就先写到这里，下回继续.</p>
 
     
     
     <footer class="meta">
       
+  <div class="cats">
+<a href="/categories/技术类/">技术类</a></div>
+
       
+  <div class="tags">
+<a href="/tags/RPi/">RPi</a><a href="/tags/Ubuntu/">Ubuntu</a><a href="/tags/C/">C++</a><a href="/tags/VSCODE/">VSCODE</a></div>
+
       
     </footer>
     
@@ -104,6 +119,10 @@
   
   
   
+    <a class="twitter" href="http://twitter.com/https://twitter.com/PuffingWorks" title="Twitter">Twitter</a>
+  
+  
+    <a class="github" href="https://github.com/https://github.com/MiniSoda" title="GitHub">GitHub</a>
   
   <a class="rss" href="/atom.xml" title="RSS">RSS</a>
 </div>
