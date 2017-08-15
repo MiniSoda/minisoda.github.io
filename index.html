@@ -1,528 +1,1098 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>MiniSoda 的博客</title>
-  <meta name="author" content="George Zheng">
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.4.0 -->
+    <script>window.materialVersion = "1.4.0"</script>
 
-  
-  
+    <!-- Title -->
+    
+    <title>
+        
+        MiniSoda 的博客
+    </title>
 
-  <link rel="alternate" href="/atom.xml" title="MiniSoda 的博客" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-  
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-103184815-1']);
-  _gaq.push(['_trackPageview']);
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+    
+    
+        <link rel="dns-prefetch" href="https://www.google-analytics.com"/>
+    
+    
+    
+    
+    
+    
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="George Zheng">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="null">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MiniSoda 的博客">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://minisoda.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="MiniSoda 的博客">
+    <meta property="og:image" content="/img/favicon.png" />
+    <meta property="og:description" content="">
+    
+
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="MiniSoda 的博客">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="/img/favicon.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://minisoda.github.io" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://minisoda.github.io" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "MiniSoda 的博客",
+        "logo": "/img/favicon.png"
+    },
+    "url": "https://minisoda.github.io/index.html",
+    "image": {
+        "@type": "ImageObject",
+        "url": "/img/favicon.png"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://minisoda.github.io"
+    },
+    "description": "null"
+}
 </script>
 
+
+
+
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import CSS & jQuery -->
+    
+        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        
+        
+            <style>
+    
+    
+    
+    
+    
+    
+    
+    .footer-sns-github {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNCA3OGMtNi40IDEuNC0yNi40IDE0LjItMzYgMjIuOC04IDcuMi0yMiAyOS44LTI0LjQgMzkuMi0xLjYgNi40LTIgMTEzLjItMS42IDM2OCAuNiAyOTkuNCAxIDM1OS44IDMuNCAzNjQgMTEgMjAuMiAyMS42IDMyLjQgMzcuMiA0MyAxNS42IDEwLjYgMTcuMiAxMS4yIDM0LjIgMTMuMiAxMC42IDEuMiA2My40IDEuNiAxMjcuNiAxLjRsMTA5LjYtLjYgNi02LjggNi4yLTYuOC0xLjItMjUuMmMtLjgtMTUuOC0uMi0zMy40IDEuNC00Ny4yIDMtMjUuNCAxLjQtMzYuMi02LTQzLjItNS00LjYtNi4yLTQuOC0zMC42LTQuMi0yNy42LjgtMjQgMS42LTY4LjgtMTYtOC42LTMuNC0yMi42LTE4LTI4LjQtMjkuOC0xMS40LTIyLjgtMjctNDUtMzkuMi01NS42LTE0LTEyLjItMTkuOC0yMC44LTE5LjgtMjguNiAwLTExLjYgMTMuNi0xMi42IDMzLjItMi40IDE2LjYgOC44IDIwLjggMTIuNCA0MC44IDM2LjIgMjQuMiAyOC42IDMxIDMzLjYgNTQgMzkuNiAxNS4yIDQgNDIuMiAzIDUxLjQtMS44IDktNC42IDE4LTE1LjIgMjQuNC0yOS4yIDExLjQtMjQuMiA3LjQtMzEuMi0yMC42LTM2LjgtOS44LTItMjkuMi04LTQzLjQtMTMuNC00MC40LTE1LjgtNjQuNi0zNy40LTg1LjQtNzYuMi0xMS42LTIxLjgtMTUuNC0zMy0xOC4yLTUzLjYtNC4yLTMyLjItNC44LTYwLjItMS40LTg0IDMuNC0yMy44IDYuOC0zMi44IDIwLjItNTQgNC02IDguOC0xNS42IDExLTIxLjQgMy44LTEwIDMuOC0xMS42IDEtMzAtNS4yLTM0LjItMy4yLTUyLjQgNy42LTcwLjIgNy4yLTEyLjIgMTUtMTcuMiAyNC4yLTE1LjggMTIuOCAyLjIgNTIgMTcuNCA2Ni44IDI2LjIgMjYgMTUgMjkgMTUuNCA4Mi40IDcuMiAyNC42LTMuOCAzMy44LTQuMiA2MC0zLjIgMTcgLjYgNDEuNCAzIDU0IDUuMiAzOC40IDYuNiA0OS42IDUuMiA3My0xMCA2LjYtNC4yIDE3LjQtOS40IDI0LTExLjYgNi42LTIuMiAxNi01LjggMjEtOC4yIDEzLTYgMjgtNS42IDM1LjYuOCAxMi40IDEwLjQgMTguNiA0MS40IDE0LjQgNzEuNi00LjQgMzAuNi0zIDM5LjQgOC40IDUzLjggMy40IDQuNCAxMS4yIDE5LjIgMTcuNCAzMy4yTDc3NSA0NDN2NzhsLTEwIDI4Yy0xNS4yIDQzLjItMzYuOCA3My4yLTY2LjIgOTIuOC0xMy40IDguOC01NyAyNS40LTc2LjggMjktMjguMiA1LjItMzMuMiAxMi42LTIyIDMyLjIgMTEuMiAxOS40IDEyLjQgMzIuOCAxMS42IDEyOS42bC0uNiA4NS44IDUuNCA0LjZjMy42IDMgOS4yIDUuMiAxNiA2IDUuOC44IDYwLjIgMSAxMjAuNi42IDEwOC40LS42IDExMC4yLS42IDExOS01IDI0LTExLjYgNDAtMjcuNCA1MS42LTUwLjZsNS40LTExIC42LTM0N2MuNC0yMjMtLjItMzUzLjQtMS40LTM2NS0yLTE3LTIuNi0xOC42LTEzLTM0LTEwLjYtMTUuNC0yMi44LTI2LjItNDMuMi0zNy4yLTQuMi0yLjQtNjQuNi0yLjgtMzY2LTMuMi0xOTguNiAwLTM2NCAuNC0zNjcuNiAxLjR6Ii8+PC9zdmc+);
+    }
+    
+    
+    
+    
+    
+</style>
+
+        
+        <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(/img/bg.png);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+
+
+        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==")</script>
+    
+    
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-103184815-1', 'auto');ga('send', 'pageview');
+</script>
+
+    <!-- Custom Head -->
+    
 </head>
 
-<body>
-  <header id="header" class="inner"><nav>
-  <ul>
-    
-      <li><a href="/">Home</a></li>
-    
-      <li><a href="/archives">Archives</a></li>
-    
-  </ul>
-</nav></header>
-  <div id="content" class="inner">
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2017/07/25/Raspberry Pi 的C++交叉编译环境配置 (4)/">Raspberry Pi 的C++交叉编译环境配置 (4)</a></h1>
-  
 
-    <time datetime="2017-07-25T15:58:53.000Z">
-  <span class="day">25</span><span class="month">Jul</span>
-</time>
-  </header>
-  <div class="entry-content">
     
-      <p>上一节我们介绍完vscode task任务管理的配置，这一节我们介绍最重要的调试环境的配置。</p>
-<p>在VSCODE下按<code>F5</code> ，选择C++</p>
-<p><img src="/2017/07/25/Raspberry Pi 的C++交叉编译环境配置 (4)/vscode-debug.jpg" alt="vscode-debug"></p>
-<p>VSCODE会自动弹出launch.json文件</p>
-<p>复制以下内容，覆盖launch.json</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</div><div class="line">  <span class="attr">"configurations"</span>: [</div><div class="line">    &#123;</div><div class="line">      <span class="attr">"name"</span>: <span class="string">"C++ Launch"</span>,</div><div class="line">      <span class="attr">"type"</span>: <span class="string">"cppdbg"</span>,</div><div class="line">      <span class="attr">"request"</span>: <span class="string">"launch"</span>,</div><div class="line">      <span class="attr">"program"</span>: <span class="string">"$&#123;workspaceRoot&#125;/testapp_d"</span>,</div><div class="line">      <span class="attr">"miDebuggerServerAddress"</span>: <span class="string">"raspberry:9091"</span>,</div><div class="line">      <span class="attr">"args"</span>: [],</div><div class="line">      <span class="attr">"stopAtEntry"</span>: <span class="literal">false</span>,</div><div class="line">      <span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceRoot&#125;"</span>,</div><div class="line">      <span class="attr">"environment"</span>: [],</div><div class="line">      <span class="attr">"externalConsole"</span>: <span class="literal">true</span>,</div><div class="line">      </div><div class="line">      <span class="attr">"linux"</span>: &#123;</div><div class="line">        <span class="attr">"miDebuggerPath"</span>: <span class="string">"/home/george/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-gdb"</span>,</div><div class="line">        <span class="attr">"MIMode"</span>: <span class="string">"gdb"</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>配置中最重要的三个参数分别是,</p>
-<ul>
-<li>program: 执行程序的带路径的名称</li>
-<li>miDebuggerServerAddress: 调试服务器的地址，”raspberry:9091” 其中raspberry是IP地址也可以是主机名称，后面是端口号</li>
-<li>miDebuggerPath: 调试器地址，注意这里要替换成你的调试器所在的路径</li>
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Index Module -->
+<div class="material-index mdl-grid">
+    
+        <!-- Paradox Header -->
+        <!-- Daily pic -->
+<div class="mdl-card mdl-shadow--2dp daily-pic mdl-cell mdl-cell--8-col index-top-block">
+
+    <!-- Pic & Slogan -->
+    <div class="mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/daily_pic_lake.png)">
+        <p class="index-top-block-slogan"><a href="#">
+        
+            
+                千里之行，始于足下
+            
+        
+        </a></p>
+    </div>
+
+    <!-- Avatar & Name -->
+    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+        <!-- Author Avatar -->
+        <div id="author-avatar">
+            <img src="/img/avatar.jpg" width="32px" height="32px" alt="avatar">
+        </div>
+        <div>
+            <strong>George Zheng</strong>
+        </div>
+    </div>
+</div>
+
+        <!-- Blog info -->
+<div class="mdl-card mdl-shadow--2dp something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop index-top-block">
+
+    <!-- Search -->
+    
+    <!-- Google -->
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" method="post" action="">
+        <label id="search-label" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent mdl-shadow--4dp" for="search">
+            <i class="material-icons mdl-color-text--white" role="presentation">search</i>
+        </label>
+
+        <form autocomplete="off" id="search-form" method="get" action="//google.com/search" accept-charset="UTF-8" class="mdl-textfield__expandable-holder" target="_blank">
+            <input class="mdl-textfield__input search-input" type="search" name="q" id="search" placeholder="">
+            <label id="search-form-label" class="mdl-textfield__label" for="search"></label>
+
+            <input type="hidden" name="sitesearch" value="https://minisoda.github.io">
+        </form>
+    </div>
+
+
+
+
+
+
+
+    <!-- LOGO -->
+    <div class="something-else-logo mdl-color--white mdl-color-text--grey-600">
+        <a href="#" target="_blank">
+            <img src="/img/logo.png" alt="logo" />
+        </a>
+    </div>
+
+    <!-- Infomation -->
+    <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
+        <!-- Blog Title -->
+        <div>
+            <strong>MiniSoda 的博客</strong>
+        </div>
+        <div class="section-spacer"></div>
+
+        <!-- Pages -->
+        <button id="show-pages-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">view_carousel</i>
+            <span class="visuallyhidden">Pages</span>
+        </button>
+        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="show-pages-button">
+            
+        </ul>
+
+        <!-- Menu -->
+        <button id="menubtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">more_vert</i>
+            <span class="visuallyhidden">show menu</span>
+        </button>
+        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="menubtn">
+            
+
+            
+
+            
+                <a class="index_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=MiniSoda 的博客&url=https://minisoda.github.io/&pic=&searchPic=false&style=simple" target="_blank">
+                    <li class="mdl-menu__item mdl-js-ripple-effect">
+                        分享到微博
+                    </li>
+                </a>
+            
+
+            
+                <a class="index_share-link" href="https://twitter.com/intent/tweet?text=MiniSoda 的博客&url=https://minisoda.github.io/&via=George Zheng" target="_blank">
+                    <li class="mdl-menu__item mdl-js-ripple-effect">
+                        分享到 Twitter
+                    </li>
+                </a>
+            
+
+            
+                <a class="index_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://minisoda.github.io/index.html" target="_blank">
+                    <li class="mdl-menu__item mdl-js-ripple-effect">
+                        分享到 Facebook
+                    </li>
+                </a>
+            
+
+            
+                <a class="index_share-link" href="https://plus.google.com/share?url=https://minisoda.github.io/" target="_blank">
+                    <li class="mdl-menu__item mdl-js-ripple-effect">
+                        分享到 Google+
+                    </li>
+                </a>
+            
+
+            
+
+            
+
+            
+        </ul>
+    </div>
+</div>
+
+    
+    <div class="locate-thumbnail-symbol"></div>
+
+    <!-- Pin on top -->
+    
+
+    <!-- Normal Post -->
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2017/07/25/Raspberry Pi 的C++交叉编译环境配置 (4)/">Raspberry Pi 的C++交叉编译环境配置 (4)</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            上一节我们介绍完vscode task任务管理的配置，这一节我们介绍最重要的调试环境的配置。
+在VSCODE下按F5
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2017/07/25/Raspberry Pi 的C++交叉编译环境配置 (4)/" target="_self">阅读全文</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="George Zheng's avatar">
+            </div>
+            <div>
+                <strong>George Zheng</strong>
+                <span>7月 25, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+            <!-- Category -->
+            <span class="post_entry-category">
+                <a class="post_category-link" href="/categories/技术类/">技术类</a>
+            </span>
+
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+            
+            
+        
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2017/07/24/Raspberry Pi 的C++交叉编译环境配置 (3)/">Raspberry Pi 的C++交叉编译环境配置 (3)</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            上一节我们把交叉编译的环境配置好了，但是作为开发过程来讲尤其是从被Visual Studio开发环境懒惯了的人来讲，用编辑器开发用命令编译工作效率还...
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2017/07/24/Raspberry Pi 的C++交叉编译环境配置 (3)/" target="_self">阅读全文</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="George Zheng's avatar">
+            </div>
+            <div>
+                <strong>George Zheng</strong>
+                <span>7月 24, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+            <!-- Category -->
+            <span class="post_entry-category">
+                <a class="post_category-link" href="/categories/技术类/">技术类</a>
+            </span>
+
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+            
+            
+        
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2017/07/22/Raspberry Pi 的C++交叉编译环境配置 (2)/">Raspberry Pi 的C++交叉编译环境配置 (2)</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            上一节我们把RPi的交叉编译器准备好了，但是实际上并没有配置好编译器所需要的库文件。
+首先，我们做一些配置，让Ubuntu主机与树莓派...
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2017/07/22/Raspberry Pi 的C++交叉编译环境配置 (2)/" target="_self">阅读全文</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="George Zheng's avatar">
+            </div>
+            <div>
+                <strong>George Zheng</strong>
+                <span>7月 22, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+            <!-- Category -->
+            <span class="post_entry-category">
+                <a class="post_category-link" href="/categories/技术类/">技术类</a>
+            </span>
+
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+            
+            
+        
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2017/07/21/Raspberry Pi 的C++交叉编译环境配置 (1)/">Raspberry Pi 的C++交叉编译环境配置 (1)</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            最近因为工作需要，正在学习配置Raspberry Pi的交叉编译环境。公司有一套基于Windows的程序准备移植到树莓派上，而自己本来是做Windo...
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2017/07/21/Raspberry Pi 的C++交叉编译环境配置 (1)/" target="_self">阅读全文</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="George Zheng's avatar">
+            </div>
+            <div>
+                <strong>George Zheng</strong>
+                <span>7月 21, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+            <!-- Category -->
+            <span class="post_entry-category">
+                <a class="post_category-link" href="/categories/技术类/">技术类</a>
+            </span>
+
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+            
+            
+        
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2017/07/19/hello-world/">Hello World</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            Welcome to Hexo
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2017/07/19/hello-world/" target="_self">阅读全文</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="George Zheng's avatar">
+            </div>
+            <div>
+                <strong>George Zheng</strong>
+                <span>7月 19, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+            <!-- Category -->
+            <span class="post_entry-category">
+                
+            </span>
+
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+            
+            
+        
+    
+
+    
+
+    
+        <script type="text/ls-javascript" id="thumbnail-script">
+    var randomNum;
+
+    var locatePost = $('.locate-thumbnail-symbol').next();
+    for(var i = 0; i < 10; i++) {
+        randomNum = Math.floor(Math.random() * 19 + 1);
+
+        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
+        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+
+        locatePost = locatePost.next();
+    }
+</script>
+
+    
+</div>
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.jpg" alt="George Zheng's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        zhenghaolan@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">5</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/技术类/">技术类<span class="sidebar_archives-count">4</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
 </ul>
-<p>我们在上一节中介绍了task的配置，其中有一项为 <code>remote debug</code> 。这个任务中引用了一段脚本，用来做一些远程调试的必要准备工作，脚本如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#clean and build</span></div><div class="line"><span class="comment">#make clean</span></div><div class="line">make ver=debug debug</div><div class="line"><span class="comment">#transfer exe file to raspberr pi</span></div><div class="line">scp ./testapp_d pi@raspberry:~/project/testapp_d</div><div class="line"><span class="comment"># Kill gdbserver if it's running</span></div><div class="line">ssh pi@raspberry killall gdbserver &amp;&gt; /dev/null</div><div class="line"><span class="comment"># Compile myprogram and launch gdbserver, listening on port 9091</span></div><div class="line">ssh pi@raspberry <span class="string">"cd project &amp;&amp; gdbserver :9091 ./testapp_d"</span></div></pre></td></tr></table></figure>
-<p>脚本主要做了以下工作：</p>
-<ul>
-<li>用debug模式编译执行文件</li>
-<li>将执行文件传输至RPi</li>
-<li>远程执行结束gdbserver进程，以防止有没有结束的gdbserver占用端口</li>
-<li>执行启动gdbserver调试执行文件</li>
-</ul>
-<p>现在RPi上还没有project目录，下面我们在RPi上创建一下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir project</div></pre></td></tr></table></figure>
-<p>现在我们可以测试一下环境是否搭建成功，测试前请确保Ubuntu和RPi的网络连接正常</p>
-<ol>
-<li><p>在vscode的test.cpp中按下<code>F9</code>选取一行作为断点</p>
-<p><img src="/2017/07/25/Raspberry Pi 的C++交叉编译环境配置 (4)/vscode-debug-break.jpg" alt="vscode-debug-break"></p>
-</li>
-<li><p>在vscode中按下 <code>Ctrl+F7</code> 执行编译、传输、启动gdbserver的工作</p>
-<p><img src="/2017/07/25/Raspberry Pi 的C++交叉编译环境配置 (4)/vscode-debug-serveron.jpg" alt="vscode-debug-serveron"></p>
-</li>
-<li><p>看到gdbserver启动成功后，按下<code>F5</code> 启动调试，调试器会自动连接,如果没有自动打开可以选择左侧边栏的调试面板按钮，可以看到代码已经命中断点，所有的变量的值都显示在变量栏里，可以按<code>F10</code>单步调试。程序的输出会显示在Terminal里。</p>
-<p><img src="/2017/07/25/Raspberry Pi 的C++交叉编译环境配置 (4)/vscode-debug-stepin.jpg" alt="vscode-debug-stepin"></p>
-<p>​</p>
-</li>
-</ol>
-<p>至此我们所有的配置工作就已经完成了，我总结一下现在的开发流程就是：</p>
-<ol>
-<li>编辑代码，<code>F7</code>查看是否有编译错误</li>
-<li><code>Ctrl+F7</code>传输代码至RPi</li>
-<li><code>F9</code>源代码中添加短短</li>
-<li><code>F5</code>连接远程调试器进行调试</li>
-<li>发现错误，重复1</li>
-</ol>
 
-    
-    
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/技术类/">技术类</a></div>
 
-      
-  <div class="tags">
-<a href="/tags/RPi/">RPi</a><a href="/tags/Ubuntu/">Ubuntu</a><a href="/tags/C/">C++</a><a href="/tags/VSCODE/">VSCODE</a></div>
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
 
-      
-    </footer>
-    
-  </div>
-  
-</article>
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
 
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
     
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
 </div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2017/07/24/Raspberry Pi 的C++交叉编译环境配置 (3)/">Raspberry Pi 的C++交叉编译环境配置 (3)</a></h1>
-  
 
-    <time datetime="2017-07-24T14:20:05.000Z">
-  <span class="day">24</span><span class="month">Jul</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>上一节我们把交叉编译的环境配置好了，但是作为开发过程来讲尤其是从被Visual Studio开发环境懒惯了的人来讲，用编辑器开发用命令编译工作效率还是太低。幸好M$在15年推出了 <a href="https://code.visualstudio.com/#alt-downloads" target="_blank" rel="external">visual studio code</a> ，本质上讲它只是一款编辑器，但是配合上插件和配置脚本后可以让Linux开发和在Windows上的体验几乎一致。</p>
-<p>一个vscode管理的项目大致包含一下结构</p>
-<p><img src="/2017/07/24/Raspberry Pi 的C++交叉编译环境配置 (3)/vscode-configure.jpg" alt="vscode-configure"></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">组成</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">extension</td>
-<td>插件，用来添加相应语言的功能</td>
-</tr>
-<tr>
-<td style="text-align:left">makefile</td>
-<td>编译管理工具</td>
-</tr>
-<tr>
-<td style="text-align:left">cpp source</td>
-<td>源文件</td>
-</tr>
-<tr>
-<td style="text-align:left">task.json</td>
-<td>vscode 的任务管理</td>
-</tr>
-<tr>
-<td style="text-align:left">launch.json</td>
-<td>调试配置管理</td>
-</tr>
-<tr>
-<td style="text-align:left">keyborad.json</td>
-<td>快捷键</td>
-</tr>
-</tbody>
-</table>
-<p>到vscode官网下载Ubuntu适用的最新安装包</p>
-<p><img src="/2017/07/24/Raspberry Pi 的C++交叉编译环境配置 (3)/vscode.jpg" alt="vscode"></p>
-<p>在Ubuntu上安装后打开，界面是这样的</p>
-<p><img src="/2017/07/24/Raspberry Pi 的C++交叉编译环境配置 (3)/vscode-look.jpg" alt="vscode-look"></p>
-<p>vscode 是以目录为项目管理单位的，点击 open folder 来打开一个目录，如果没有的话就新建一个。</p>
-<p>首先安装插件：</p>
-<p>启动 VS Code 快速打开功能 <code>Ctrl+P</code>, 粘贴命令并回车.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ext install cpptools</div></pre></td></tr></table></figure>
-<p>cpptools是用来编辑C++代码的插件，提供代码格式化、函数补完、调试等功能。具体参见<a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools" target="_blank" rel="external">这里</a></p>
-<p>插件安装完成后，用新建文件的方式创建代码，我写了一些测试代码可以点击创建后把下面这些代码粘上去。</p>
-<p><img src="/2017/07/24/Raspberry Pi 的C++交叉编译环境配置 (3)/vscode-newfile.jpg" alt="点击这个按钮新建文件"></p>
-<ul>
-<li><p>Makefile - makefile是Unix下常用的管理工程的工具，点击<a href="http://makefiletutorial.com/" target="_blank" rel="external">这里</a>有比较详细的教程</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">objects = test.o list.o</div><div class="line">ver = </div><div class="line">CC=arm-linux-gnueabihf-gcc</div><div class="line">CXX=arm-linux-gnueabihf-g++</div><div class="line"></div><div class="line"><span class="keyword">ifeq</span> (<span class="variable">$(ver)</span>, debug)</div><div class="line">CXXFLAGS = -c -Wall -g -Ddebug -pthread -std=c++11 -I~/raspberrypi/rootfs/usr/<span class="keyword">include</span> -L~/raspberrypi/rootfs/lib/arm-linux-gnueabihf</div><div class="line">filename = testapp_d</div><div class="line"><span class="keyword">else</span></div><div class="line">CXXFLAGS = -c -Wall -O3 -pthread -std=c++11 -I~/raspberrypi/rootfs/usr/<span class="keyword">include</span> -L~/raspberrypi/rootfs/lib/arm-linux-gnueabihf</div><div class="line">filename = testapp</div><div class="line"><span class="keyword">endif</span></div><div class="line"></div><div class="line">all : <span class="variable">$(objects)</span></div><div class="line">	<span class="variable">$(CXX)</span> -Wall -pthread -std=c++11 -o <span class="variable">$(filename)</span> <span class="variable">$^</span></div><div class="line"></div><div class="line"><span class="section">debug: <span class="variable">$(objects)</span></span></div><div class="line">	<span class="variable">$(CXX)</span> -g -Wall -pthread -std=c++11 -o <span class="variable">$(filename)</span> <span class="variable">$^</span></div><div class="line"></div><div class="line">test.o : test.cpp </div><div class="line">	<span class="variable">$(CXX)</span> <span class="variable">$(CXXFLAGS)</span> <span class="variable">$&lt;</span> -o <span class="variable">$@</span></div><div class="line"></div><div class="line"><span class="section">list.o: list.cpp</span></div><div class="line">	<span class="variable">$(CXX)</span> <span class="variable">$(CXXFLAGS)</span> <span class="variable">$&lt;</span> -o <span class="variable">$@</span></div><div class="line"></div><div class="line">clean :</div><div class="line">	rm -f <span class="variable">$(filename)</span> <span class="variable">$(filename)</span>_d *.o</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>list.h</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LIST_H</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LIST_H</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">printWelcome</span><span class="params">()</span></span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">my_thread</span><span class="params">()</span></span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>list.cpp</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"list.h"</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">printWelcome</span><span class="params">( )</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Welcome"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">my_thread</span><span class="params">()</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="built_in">puts</span>(<span class="string">"hello, thread!"</span>);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>test.cpp</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;thread&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"list.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( <span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="function">thread <span class="title">t</span><span class="params">( []()</span></span>&#123; <span class="built_in">puts</span>(<span class="string">"Hello, Lambda thread!"</span>);  &#125;);  </div><div class="line">    <span class="built_in">string</span> strInfo = <span class="string">""</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"Hello Test!"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    printWelcome();</div><div class="line">    <span class="keyword">float</span> szChara = <span class="number">8.0</span>;</div><div class="line">    </div><div class="line">    <span class="keyword">int</span> sum=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>;i++)</div><div class="line">    &#123;</div><div class="line">        sum+=i;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> size = <span class="keyword">sizeof</span>(szChara);</div><div class="line">    <span class="built_in">cout</span>&lt;&lt; <span class="string">"size of char: "</span>&lt;&lt; size &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    t.join();  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ul>
-<p>源文件和makefile添加完成后，我们开始配置task.json用来管理任务</p>
-<p>在vscode中按 <code>Ctrl+Shift+B</code>  <img src="/2017/07/24/Raspberry Pi 的C++交叉编译环境配置 (3)/vscode-config-task.jpg" alt="vscode-config-task"></p>
-<p>然后点击</p>
-<p><img src="/2017/07/24/Raspberry Pi 的C++交叉编译环境配置 (3)/vscode-config-task1.jpg" alt="vscode-config-task1"></p>
-<p>vscode会在工程目录下新建<code>.vscode</code> 文件夹，并声称 task.json文件。</p>
-<p>将我配置好的task.json内容复制上去</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    // See https://go.microsoft.com/fwlink/?LinkId=733558</div><div class="line">    // for the documentation about the tasks.json format</div><div class="line">    "version": "2.0.0",</div><div class="line">    "tasks": [</div><div class="line">        &#123;</div><div class="line">            "taskName": "debug",</div><div class="line">            "type": "shell",</div><div class="line">            "command": "make ver=debug debug",</div><div class="line">            "suppressTaskName": true,</div><div class="line">            "group": "build",</div><div class="line">            "presentation": &#123;</div><div class="line">                "reveal": "always",</div><div class="line">                "panel": "shared"</div><div class="line">            &#125;,</div><div class="line">            "problemMatcher": [</div><div class="line">                &#123;</div><div class="line">                    "owner": "cpp",</div><div class="line">                    "fileLocation": [</div><div class="line">                        "relative",</div><div class="line">                        "$&#123;workspaceRoot&#125;"</div><div class="line">                    ],</div><div class="line">                    "pattern": &#123;</div><div class="line">                        "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",</div><div class="line">                        "file": 1,</div><div class="line">                        "line": 2,</div><div class="line">                        "column": 3,</div><div class="line">                        "severity": 4,</div><div class="line">                        "message": 5</div><div class="line">                    &#125;</div><div class="line">                &#125;,</div><div class="line">                &#123;</div><div class="line">                    "owner": "make",</div><div class="line">                    "fileLocation": [</div><div class="line">                        "relative",</div><div class="line">                        "$&#123;workspaceRoot&#125;"</div><div class="line">                    ],</div><div class="line">                    "pattern": &#123;</div><div class="line">                        "regexp": "^(.*):(\\d+):\\s+(.*)$",</div><div class="line">                        "file": 1,</div><div class="line">                        "line": 2,</div><div class="line">                        "message": 3</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            ]</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            "taskName": "remote debug",</div><div class="line">            "type": "shell",</div><div class="line">            "command": "./prepare_remote_debug.sh",</div><div class="line">            "suppressTaskName": true,</div><div class="line">            "group": "build",</div><div class="line">            "presentation": &#123;</div><div class="line">                "reveal": "always",</div><div class="line">                "focus": false,</div><div class="line">                "panel": "shared"</div><div class="line">            &#125;,</div><div class="line">            "problemMatcher": [</div><div class="line">                &#123;</div><div class="line">                    "owner": "cpp",</div><div class="line">                    "fileLocation": [</div><div class="line">                        "relative",</div><div class="line">                        "$&#123;workspaceRoot&#125;"</div><div class="line">                    ],</div><div class="line">                    "pattern": &#123;</div><div class="line">                        "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",</div><div class="line">                        "file": 1,</div><div class="line">                        "line": 2,</div><div class="line">                        "column": 3,</div><div class="line">                        "severity": 4,</div><div class="line">                        "message": 5</div><div class="line">                    &#125;</div><div class="line">                &#125;,</div><div class="line">                &#123;</div><div class="line">                    "owner": "make",</div><div class="line">                    "fileLocation": [</div><div class="line">                        "relative",</div><div class="line">                        "$&#123;workspaceRoot&#125;"</div><div class="line">                    ],</div><div class="line">                    "pattern": &#123;</div><div class="line">                        "regexp": "^(.*):(\\d+):\\s+(.*)$",</div><div class="line">                        "file": 1,</div><div class="line">                        "line": 2,</div><div class="line">                        "message": 3</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            ]</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            "taskName": "release",</div><div class="line">            "type": "shell",</div><div class="line">            "command": "make",</div><div class="line">            "suppressTaskName": true,</div><div class="line">            "group": "build",</div><div class="line">            "presentation": &#123;</div><div class="line">                "reveal": "always",</div><div class="line">                "focus": false,</div><div class="line">                "panel": "shared"</div><div class="line">            &#125;,</div><div class="line">            "problemMatcher": [</div><div class="line">                &#123;</div><div class="line">                    "owner": "cpp",</div><div class="line">                    "fileLocation": [</div><div class="line">                        "relative",</div><div class="line">                        "$&#123;workspaceRoot&#125;"</div><div class="line">                    ],</div><div class="line">                    "pattern": &#123;</div><div class="line">                        "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",</div><div class="line">                        "file": 1,</div><div class="line">                        "line": 2,</div><div class="line">                        "column": 3,</div><div class="line">                        "severity": 4,</div><div class="line">                        "message": 5</div><div class="line">                    &#125;</div><div class="line">                &#125;,</div><div class="line">                &#123;</div><div class="line">                    "owner": "make",</div><div class="line">                    "fileLocation": [</div><div class="line">                        "relative",</div><div class="line">                        "$&#123;workspaceRoot&#125;"</div><div class="line">                    ],</div><div class="line">                    "pattern": &#123;</div><div class="line">                        "regexp": "^(.*):(\\d+):\\s+(.*)$",</div><div class="line">                        "file": 1,</div><div class="line">                        "line": 2,</div><div class="line">                        "message": 3</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            ]</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            "taskName": "clean",</div><div class="line">            "type": "shell",</div><div class="line">            "command": "make clean",</div><div class="line">            "suppressTaskName": true,</div><div class="line">            "group": "build",</div><div class="line">            "presentation": &#123;</div><div class="line">                "reveal": "always",</div><div class="line">                "focus": false,</div><div class="line">                "panel": "shared"</div><div class="line">            &#125;,</div><div class="line">            "problemMatcher": []</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>vscode 的task 本质上是在后台执行一个command，我们利用配置task调用make 实现管理编译工程文件及其他任务，task的语法可以参考<a href="https://code.visualstudio.com/Docs/editor/tasks" target="_blank" rel="external">这里</a>。</p>
-<p>现在，我们可以利用task来实现项目的编译。</p>
-<p>在vscode中按 <code>Ctrl+P</code> 调出快速命令 输入 <code>task debug</code> 回车进行编译，控制台中输出：</p>
-<p><img src="/2017/07/24/Raspberry Pi 的C++交叉编译环境配置 (3)/vscode-task-debug.jpg" alt="vscode-task-debug"></p>
-<p>此时make工具会执行 make ver=debug debug命令来对工程进行编译，编译结束后在文件夹下生成test.o 及 testapp_d文件。</p>
-<p>同样，可以利用task执行make clean， vscode中 按 <code>Ctrl+P</code> 输入 task clean，回车执行清理。</p>
-<p>现在可以说开发编译过程非常方便了，但是还可以更方便一点。</p>
-<p>在标题栏中找到 File - Preferrences-Keyboard shortcuts 点击后打开Keyboard shortcuts页面，点击keybindings.json</p>
-<p><img src="/2017/07/24/Raspberry Pi 的C++交叉编译环境配置 (3)/vscode-keybinding.jpg" alt="vscode-keybinding"></p>
-<p>点击后弹出</p>
-<p><img src="/2017/07/24/Raspberry Pi 的C++交叉编译环境配置 (3)/vscode-keybinding1.jpg" alt="vscode-keybinding1"></p>
-<p>在Keybindings.json中输入以下内容</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">    &#123;</div><div class="line">    <span class="attr">"key"</span>: <span class="string">"F7"</span>,</div><div class="line">    <span class="attr">"command"</span>: <span class="string">"workbench.action.tasks.runTask"</span>,</div><div class="line">    <span class="attr">"args"</span>: <span class="string">"debug"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">    <span class="attr">"key"</span>: <span class="string">"ctrl+F7"</span>,</div><div class="line">    <span class="attr">"command"</span>: <span class="string">"workbench.action.tasks.runTask"</span>,</div><div class="line">    <span class="attr">"args"</span>: <span class="string">"remote debug"</span></div><div class="line">    &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
-<p>keybindings.json是定义快捷键的布局文件，这里我们添加了 <code>F7</code>和<code>Ctrl+F7</code> 分别执行 <code>task debug</code> 和 <code>task remote debug</code> ，debug任务实际上是执行带调试信息的<strong>编译任务</strong>并不是真正的debug。</p>
-<p>好了现在可以关掉keybindings.json回到我们的工程中来，按下<code>F7</code> 可以看到工程现在可以自行编译了，是不是和visual studio一模一样？ </p>
-<p><img src="/2017/07/24/Raspberry Pi 的C++交叉编译环境配置 (3)/vscode-F7.jpg" alt="vscode-F7"></p>
-<p>由于我们现在是交叉编译，所以需要将执行文件传输到RPi上然后通过远程调试的方式来进行调试，这部分内容我们下节再讲。</p>
+                    
 
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
     
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
     
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/技术类/">技术类</a></div>
 
-      
-  <div class="tags">
-<a href="/tags/RPi/">RPi</a><a href="/tags/Ubuntu/">Ubuntu</a><a href="/tags/C/">C++</a><a href="/tags/VSCODE/">VSCODE</a></div>
+    <!-- Facebook -->
+    
 
-      
-    </footer>
+    <!-- Google + -->
     
-  </div>
-  
-</article>
 
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
+    <!-- Weibo -->
     
-      <img src="">
+
+    <!-- Instagram -->
     
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/MiniSoda" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
 </div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2017/07/22/Raspberry Pi 的C++交叉编译环境配置 (2)/">Raspberry Pi 的C++交叉编译环境配置 (2)</a></h1>
-  
-
-    <time datetime="2017-07-22T14:17:33.000Z">
-  <span class="day">22</span><span class="month">Jul</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>上一节我们把RPi的交叉编译器准备好了，但是实际上并没有配置好编译器所需要的库文件。</p>
-<p>首先，我们做一些配置，让Ubuntu主机与树莓派通信更加方便。为了方便区分，每段代码的上方用host表示在Ubuntu中执行的命令raspberry表示在树莓派中执行的命令</p>
-<ol>
-<li><p>添加树莓派的IP到主机的host文件中：</p>
-<p><em>host</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/hosts</div></pre></td></tr></table></figure>
-<p>移动光标到相应的地方按 <em>i</em> 进入编辑模式。添加主机的IP地址和名称，然后 <em>:wq</em> 保存</p>
-<p><img src="/2017/07/22/Raspberry Pi 的C++交叉编译环境配置 (2)/add_host.jpg" alt="add_host"></p>
-</li>
-<li><p>添加公钥到RPi，这样以后对RPi的远程操作不需要重新输入密码了</p>
-<p><em>host</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa</div></pre></td></tr></table></figure>
-<p>一路确认不要输入其他参数，成功后会在 <em>~/.ssh</em> 目录下生成公钥和私钥 <em>id_rsa id_rsa.pub</em></p>
-<p>将公钥复制到RPi的 ~/.ssh目录下，以后通过Ubuntu主机就可以直接登录RPi不需要重复输入密码了。</p>
-<p><em>raspberry</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp ~/.ssh/id_rsa.pub pi@raspberry:~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
-<p>然后登录到RPi 把id_rsa.pub的内容添加到authorized_keys文件中</p>
-<p><em>raspberry</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> .ssh</div><div class="line">cat id_rsa.pub&gt;&gt;authorized_keys</div></pre></td></tr></table></figure>
-<p>回到Ubuntu主机的terminal中测试</p>
-<p><em>host</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh pi@raspberry</div></pre></td></tr></table></figure>
-<p>如果不需输入密码了说明配置成功了</p>
-<p>​</p>
-</li>
-</ol>
-<p>下一步，我们在Ubuntu上建立一个文件夹用来存放RPi的库和头文件。然后通过rsync命令把树莓派上面的文件拷贝到本地，注意在此之前要上一步的操作已经完成，否则请把rsync命令中的raspberry替换成实际的IP地址。</p>
-<p><em>host</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir raspberrypi &amp;&amp; <span class="built_in">cd</span> raspberrypi</div><div class="line">mkdir rootfs &amp;&amp; <span class="built_in">cd</span> rootfs</div><div class="line">rsync -rl --delete-after --safe-links pi@raspberry:/&#123;lib,usr&#125; <span class="variable">$HOME</span>/raspberrypi/rootfs</div></pre></td></tr></table></figure>
-<p>这里rsync会把RPi上整个 lib 和 usr目录拷贝过来，如果需要Qt库的话可以在拷贝之前先在RPi上配置好Qt开发所需的库然后再拷贝。</p>
-<p>拷贝结束后我们写一个测试程序来试一试吧。</p>
-<p>用编辑器输入以下代码，保存为 <em>test.cpp</em></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;thread&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( <span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="function">thread <span class="title">t</span><span class="params">( []()</span></span>&#123; <span class="built_in">puts</span>(<span class="string">"Hello, Lambda thread!"</span>);  &#125;);  </div><div class="line">    <span class="built_in">string</span> strInfo = <span class="string">""</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"Hello Test!"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">float</span> szChara = <span class="number">8.0</span>;</div><div class="line">    </div><div class="line">    <span class="keyword">int</span> sum=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>;i++)</div><div class="line">    &#123;</div><div class="line">        sum+=i;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> size = <span class="keyword">sizeof</span>(szChara);</div><div class="line">    <span class="built_in">cout</span>&lt;&lt; <span class="string">"size of char: "</span>&lt;&lt; size &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    t.join();  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在Terminal中用编译器编译一下</p>
-<p><em>host</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arm-linux-gnueabihf-g++ -Wall -pthread -std=c++11 -o testapp test.cpp -I~/raspberrypi/rootfs/usr/include -L~/raspberrypi/rootfs/lib/arm-linux-gnueabihf</div></pre></td></tr></table></figure>
-<p>可以看到这时目录中生成了 testapp执行文件，如果此时执行这个文件会提示</p>
-<p>bash: ./testapp: cannot execute binary file: Exec format error</p>
-<p>这是因为用交叉编译工具编译出来的执行文件是以arm平台作为目标的，而我们的Ubuntu主机是X86架构。可以通过file命令来验证。</p>
-<p><img src="/2017/07/22/Raspberry Pi 的C++交叉编译环境配置 (2)/compile_run.jpg" alt="compile_run"></p>
-<p>现在我们把testapp传输到RPi上来执行</p>
-<p><em>raspberry</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp testapp pi@raspberry:testapp</div></pre></td></tr></table></figure>
-<p>切换到RPi的Terminal上来执行</p>
-<p><em>raspberry</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./testapp</div></pre></td></tr></table></figure>
-<p>窗口输出</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">pi@raspberrypi:~ $ ./testapp </div><div class="line">Hello Test!</div><div class="line">size of char: 4</div><div class="line">Hello, Lambda thread!</div></pre></td></tr></table></figure>
-<p>至此，我们对编译环境的配置就完全结束了，下一节我们开始配置VSCODE</p>
-
-    
-    
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/技术类/">技术类</a></div>
-
-      
-  <div class="tags">
-<a href="/tags/RPi/">RPi</a><a href="/tags/Ubuntu/">Ubuntu</a><a href="/tags/C/">C++</a><a href="/tags/VSCODE/">VSCODE</a></div>
-
-      
-    </footer>
-    
-  </div>
-  
-</article>
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2017/07/21/Raspberry Pi 的C++交叉编译环境配置 (1)/">Raspberry Pi 的C++交叉编译环境配置 (1)</a></h1>
-  
-
-    <time datetime="2017-07-21T15:45:33.000Z">
-  <span class="day">21</span><span class="month">Jul</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>最近因为工作需要，正在学习配置Raspberry Pi的交叉编译环境。公司有一套基于Windows的程序准备移植到树莓派上，而自己本来是做Windows下的C++开发工作，因此选择界面比较友好的Ubuntu作为操作系统、VSCODE作为编辑器来进行开发工作，毕竟M$大法好。</p>
-<p>这一系列博客将会按照下图的结构来展开：</p>
-<p><img src="/2017/07/21/Raspberry Pi 的C++交叉编译环境配置 (1)/RPi的交叉编译环境.png" alt="RPi的交叉编译环境"></p>
-<p>工欲善其事，必先利其器。今天某宝买的Raspberry Pi 3B到货，记录一下交叉编译环境搭建的过程。我们会用到以下工具：</p>
-<ul>
-<li>Ubuntu虚机或物理机</li>
-<li><a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="external">树莓派操作系统</a></li>
-<li><a href="https://github.com/raspberrypi/tools" target="_blank" rel="external">树莓派交叉编译工具链</a></li>
-<li><a href="https://code.visualstudio.com/" target="_blank" rel="external">M$家的VSCODE</a></li>
-</ul>
-<p>Ubuntu虚机和树莓派的系统有很多教程都很详细，我这里用的是Ubuntu 16.04LTS 和 RASPBIAN JESSIE WITH DESKTOP with Kernel version: <strong>4.9</strong></p>
-<p>首先是安装交叉编译工具链到Ubuntu，打开Terminal在家目录下执行以下操作</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir tools</div><div class="line">git <span class="built_in">clone</span> https://github.com/raspberrypi/tools.git tools</div></pre></td></tr></table></figure>
-<p>这个命令会到 raspberrypi 的官方repo去下载工具，时间取决于网络情况。</p>
-<p>下载完成后进入 $HOME/tools/arm-bcm2708 目录</p>
-<p>在 arm-bcm2708目录下有以下目录， 每个都是一个单独的工具链:</p>
-<ol>
-<li>arm-bcm2708-linux-gnueabi</li>
-<li>arm-bcm2708hardfp-linux-gnueabi</li>
-<li>gcc-linaro-arm-linux-gnueabihf-raspbian</li>
-<li>gcc-linaro-arm-linux-gnueabihf-raspbian-x64</li>
-</ol>
-<p>由于我用的是64为操作系统，所以需要把 4 指向的目录添加到 .bashrc 中。注意，/home/zheng是我自己的用户路径，这里要替换成你自己的路径。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vi ~/.bashrc</div><div class="line"><span class="comment">#添加以下内容到文件末尾</span></div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/home/zheng/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin</div><div class="line"><span class="built_in">source</span> .bashrc</div></pre></td></tr></table></figure>
-<p>通过 source .bashrc更新terminal的环境变量</p>
-<p>接下来执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arm-linux-gnueabihf-gcc -v</div></pre></td></tr></table></figure>
-<p>如果看到这样的输出，就说明配置交叉编译工具成功了</p>
-<p><img src="/2017/07/21/Raspberry Pi 的C++交叉编译环境配置 (1)/terminal-snapshot.jpg" alt="控制台截图"></p>
-<p>今天就先写到这里，下回继续.</p>
-
-    
-    
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/技术类/">技术类</a></div>
-
-      
-  <div class="tags">
-<a href="/tags/RPi/">RPi</a><a href="/tags/Ubuntu/">Ubuntu</a><a href="/tags/C/">C++</a><a href="/tags/VSCODE/">VSCODE</a></div>
-
-      
-    </footer>
-    
-  </div>
-  
-</article>
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2017/07/19/hello-world/">Hello World</a></h1>
-  
-
-    <time datetime="2017-07-19T14:57:48.012Z">
-  <span class="day">19</span><span class="month">Jul</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
 
 
-<nav id="pagenavi">
-  
-  
-  <div class="clearfix"></div>
-</nav></div>
-  <footer id="footer" class="inner"><div class="social alignright">
-  
-  
-  
-    <a class="twitter" href="http://twitter.com/https://twitter.com/PuffingWorks" title="Twitter">Twitter</a>
-  
-  
-    <a class="github" href="https://github.com/https://github.com/MiniSoda" title="GitHub">GitHub</a>
-  
-  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
-</div>
-<p>
-  
-  &copy; 2017 George Zheng
-  
-</p>
-<div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>MiniSoda 的博客
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+
+
+    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==")</script>
+    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
 
 
 
+    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
 </script>
 
 
-<div id="phasebeam">
-  <canvas></canvas>
-  <canvas></canvas>
-  <canvas></canvas>
-</div>
-<script src="/js/phasebeam.js"></script>
-</body>
+
+
+
+
+
+
+
+   <!-- 使用 DISQUS js 代码 -->
+<script id="dsq-count-scr" src="//minisodas-blog.disqus.com/count.js" async></script>
+
+
+
+
+    <!-- Swiftye -->
+    
+
+    <!-- Local Search-->
+    
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Window Load-->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Bing Background -->
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
 </html>
